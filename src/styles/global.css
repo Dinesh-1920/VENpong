@@ -43,11 +43,18 @@ input, textarea, select {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  max-width: 480px;
-  margin: 0 auto;
+  width: 100%;
   background: var(--surface);
   position: relative;
-  box-shadow: 0 0 40px rgba(0,0,0,0.08);
+}
+
+/* Cap width and center only on true desktop — no gaps on phones */
+@media (min-width: 600px) {
+  .app-container {
+    max-width: 480px;
+    margin: 0 auto;
+    box-shadow: 0 0 40px rgba(0,0,0,0.08);
+  }
 }
 
 /* Header with orange accent stripe at the bottom */
@@ -111,15 +118,21 @@ input, textarea, select {
 .bottom-nav {
   position: fixed;
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
   width: 100%;
-  max-width: 480px;
   background: var(--surface);
-  border-top: 1px solid var(--border);
+  border-top: 2px solid var(--primary);
   display: flex;
   z-index: 100;
   box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+}
+
+@media (min-width: 600px) {
+  .bottom-nav {
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 480px;
+  }
 }
 
 .nav-item {
@@ -151,23 +164,15 @@ input, textarea, select {
 }
 
 .nav-item.active {
-  color: var(--primary);
+  color: white;
+  background: var(--primary);
+  border-radius: 8px;
+  margin: 4px 3px;
+  padding: 7px 4px 6px;
 }
 
 .nav-item.active .nav-icon {
-  transform: scale(1.1);
-}
-
-/* Orange top indicator bar */
-.nav-item.active::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 15%;
-  right: 15%;
-  height: 3px;
-  background: var(--primary);
-  border-radius: 0 0 4px 4px;
+  transform: scale(1.05);
 }
 
 /* ── Cards ──────────────────────────────────────────────── */
@@ -181,7 +186,8 @@ input, textarea, select {
 }
 
 .card:hover {
-  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 24px rgba(143,4,73,0.08);
+  transform: translateY(-1px);
 }
 
 /* ── Buttons ─────────────────────────────────────────────── */
@@ -420,6 +426,46 @@ input, textarea, select {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 10px;
+}
+
+/* ── Score buttons (Live scoreboard) ────────────────────── */
+.btn-score {
+  width: 100%;
+  padding: 1.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 800;
+  border-radius: var(--radius-md);
+  letter-spacing: 1px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.12s, box-shadow 0.18s;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+}
+
+.btn-score:active {
+  transform: scale(0.96);
+}
+
+.btn-score-a {
+  background: var(--primary);
+  box-shadow: 0 4px 16px rgba(255,107,53,0.35);
+}
+
+.btn-score-a:hover {
+  background: var(--primary-dark);
+  box-shadow: 0 6px 20px rgba(255,107,53,0.45);
+}
+
+.btn-score-b {
+  background: #4A9EFF;
+  box-shadow: 0 4px 16px rgba(74,158,255,0.35);
+}
+
+.btn-score-b:hover {
+  background: #3A8EEF;
+  box-shadow: 0 6px 20px rgba(74,158,255,0.45);
 }
 
 /* ── Stat cards ──────────────────────────────────────────── */
