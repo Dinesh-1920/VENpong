@@ -1,0 +1,24 @@
+:root {
+  --primary: #FF6B35;
+  --primary-dark: #E5552D;
+  --secondary: #004E89;
+  --accent: #FFD23F;
+  --bg: #FAFAFA;
+  --surface: #FFFFFF;
+  --text: #1A1A1A;
+  --text-muted: #666666;
+  --border: #E0E0E0;
+  --success: #27AE60;
+  --danger: #E74C3C;
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  --font-heading: 'Bebas Neue', sans-serif;
+  --font-body: 'Work Sans', sans-serif;
+}
